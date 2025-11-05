@@ -1,0 +1,20 @@
+<div class="search-container">
+  <h1>{{ title }}</h1>
+  <input
+    type="text"
+    [(ngModel)]="query"
+    (keyup.enter)="onSearch()"
+    placeholder="Type your search query..."
+    class="search-bar"
+  />
+  <button (click)="onSearch()">Search</button>
+
+  <div class="results" *ngIf="results.length > 0">
+    <h2>Search Results:</h2>
+    <div *ngFor="let result of results" class="result-item">
+      <h3>{{ result.title }}</h3>
+      <p>{{ result.description }}</p>
+      <small>{{ result.type }}</small>
+    </div>
+  </div>
+</div>
